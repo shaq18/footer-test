@@ -86,9 +86,12 @@ const Footer = forwardRef<HTMLElement, FooterProps>(
                 </div>
                 <div>
                   {mobileFooter.legalText.map((item) => {
-                    return item.children.map((child) => {
-                      console.log(child);
-                      return <Text className="text-xxs text-center">{child.text}</Text>;
+                    return item.children.map((child, i) => {
+                      return (
+                        <Text key={`legal-text-${i}`} className="text-xxs text-center">
+                          {child.text}
+                        </Text>
+                      );
                     });
                   })}
                 </div>
