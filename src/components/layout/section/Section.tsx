@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 import React, { forwardRef, ReactNode } from 'react';
 
-interface SectionProps extends React.HTMLAttributes<HTMLElement> {
+export interface SectionProps extends React.HTMLAttributes<HTMLElement> {
   className?: string;
   children: ReactNode;
 }
