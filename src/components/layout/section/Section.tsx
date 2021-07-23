@@ -6,8 +6,8 @@ export interface SectionProps extends React.HTMLAttributes<HTMLElement> {
   children: ReactNode;
 }
 
-const Section = forwardRef<HTMLElement, SectionProps>(({ className, ...props }: SectionProps) => {
-  return <section className={clsx('py-6', 't-sm:py-10', className)} {...props} />;
+const Section = forwardRef<HTMLElement, SectionProps>(({ className, ...props }, ref) => {
+  return <section className={clsx('py-6', 't-sm:py-10', className)} ref={ref} {...props} />;
 });
 
 export default Section;
