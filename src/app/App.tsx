@@ -1,3 +1,4 @@
+import React from 'react';
 import Footer from '../components/ui/footer';
 import '../styles/styles.css';
 import { desktopFooter, mobileFooter } from './mockData';
