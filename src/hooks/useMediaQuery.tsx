@@ -5,6 +5,8 @@ const useMediaQuery = () => {
   const media_tSM = window.matchMedia('(min-width:768px)');
 
   useEffect(() => {
+    setIs_tSM(media_tSM.matches);
+
     media_tSM.onchange = (e) => {
       if (e.matches) {
         setIs_tSM(true);
