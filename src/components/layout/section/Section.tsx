@@ -1,12 +1,13 @@
 import clsx from 'clsx';
-import React from 'react';
+import React, { forwardRef, ReactNode } from 'react';
 
-interface SectionProps {
+interface SectionProps extends React.HTMLAttributes<HTMLElement> {
   className?: string;
+  children: ReactNode;
 }
 
-const Section = ({ className, ...props }: SectionProps) => {
-  return <section className={clsx('p-6', 't-sm:p-10', className)} {...props} />;
-};
+const Section = forwardRef<HTMLElement, SectionProps>(({ className, ...props }: SectionProps) => {
+  return <section className={clsx('py-6', 't-sm:py-10', className)} {...props} />;
+});
 
 export default Section;
