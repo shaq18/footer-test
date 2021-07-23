@@ -1,14 +1,17 @@
-import React, { forwardRef } from 'react';
+import React, { forwardRef, ReactNode } from 'react';
 
 export interface HeadingProps {
+  as?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
   className?: string;
-  tagName?: keyof JSX.IntrinsicElements;
+  children?: ReactNode;
 }
 
-const Heading = forwardRef<HTMLHeadingElement, HeadingProps>(({ className, tagName, ...props }) => {
-  const Tag = tagName as keyof JSX.IntrinsicElements;
+const Heading = forwardRef<HTMLHeadingElement, HeadingProps>(
+  ({ as = 'h2', className, ...props }, ref) => {
+    const Tag = as;
 
-  return <Tag {...props} />;
-});
+    return <Tag {...props} ref={ref} />;
+  }
+);
 
 export default Heading;
