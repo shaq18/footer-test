@@ -1,3 +1,5 @@
-body {
-  font-family: "Avenir LT Pro";
+@layer base {
+  body {
+    @apply font-main;
+  }
 }
