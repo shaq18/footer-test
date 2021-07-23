@@ -1,3 +1,4 @@
+import clsx from 'clsx';
 import React, { forwardRef, ReactNode } from 'react';
 
 export interface HeadingProps {
@@ -6,11 +7,20 @@ export interface HeadingProps {
   children?: ReactNode;
 }
 
+const styles = {
+  h1: '',
+  h2: '',
+  h3: '',
+  h4: '',
+  h5: 'font-medium uppercase text-heading-5',
+  h6: '',
+};
+
 const Heading = forwardRef<HTMLHeadingElement, HeadingProps>(
   ({ as = 'h2', className, ...props }, ref) => {
     const Tag = as;
 
-    return <Tag {...props} ref={ref} />;
+    return <Tag className={clsx(styles[as], className)} {...props} ref={ref} />;
   }
 );
 

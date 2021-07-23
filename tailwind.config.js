@@ -19,6 +19,7 @@ module.exports = {
       main: ['Avenir LT Pro', 'sans-serif'],
     },
     fontSize: {
+      'heading-5': ['14px', '1'],
       footer: ['14px', '1'],
       icon: ['29px', '1'],
       xxs: ['10px', '1.7'],
@@ -56,7 +57,14 @@ module.exports = {
       19: '95px',
       20: '100px',
     },
-    extend: {},
+    extend: {
+      maxWidth: {
+        '360px': '360px',
+      },
+      gridTemplateColumns: {
+        '4-auto': 'auto auto auto auto',
+      },
+    },
   },
   variants: {
     extend: {
@@ -76,6 +84,7 @@ module.exports = {
           marginLeft: 'auto',
           '@screen t-sm': {
             maxWidth: '768px',
+            width: '100%',
             paddingLeft: '48px',
             paddingRight: '48px',
           },

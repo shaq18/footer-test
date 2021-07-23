@@ -9,7 +9,7 @@ export interface LinkProps extends React.AnchorHTMLAttributes<HTMLAnchorElement>
 
 const styles = {
   variant: {
-    footer: 'font-black text-footer lowercase t-sm:font-normal t-sm:normal-case',
+    footer: 'font-black text-footer lowercase t-sm:font-light t-sm:normal-case',
     'footer-sub': 'text-footer lowercase',
   },
 };

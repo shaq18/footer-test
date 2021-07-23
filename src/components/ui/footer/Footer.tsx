@@ -1,9 +1,12 @@
+import clsx from 'clsx';
 import React, { forwardRef } from 'react';
 import useMediaQuery from '../../../hooks/useMediaQuery';
 import Container from '../../layout/container';
+import Grid from '../../layout/grid';
 import Section from '../../layout/section';
 import Icon from '../../media/icon';
 import Link from '../../navigation/link';
+import Heading from '../../typography/heading';
 import Text from '../../typography/text';
 
 interface FooterProps {
@@ -57,12 +60,13 @@ interface FooterProps {
 const Footer = forwardRef<HTMLElement, FooterProps>(
   ({ desktopFooter, mobileFooter, ...props }, ref) => {
     const { is_tSM } = useMediaQuery();
+    console.log(desktopFooter, is_tSM);
 
     return (
       <footer ref={ref} {...props}>
         <Section className="bg-primary text-white">
           <Container>
-            {!is_tSM && (
+            {!is_tSM ? (
               <div>
                 <nav>
                   <ul>
@@ -72,7 +76,7 @@ const Footer = forwardRef<HTMLElement, FooterProps>(
                           key={item._id}
                           className="flex py-3 border-b border-white last:border-b-0"
                         >
-                          <Link>{item.displayText}</Link>
+                          <Link href={item.url}>{item.displayText}</Link>
                         </li>
                       );
                     })}
@@ -96,6 +100,34 @@ const Footer = forwardRef<HTMLElement, FooterProps>(
                   })}
                 </div>
               </div>
+            ) : (
+              <Grid
+                className={clsx(
+                  'grid-cols-2 gap-8 max-w-360px mx-auto',
+                  't-lg:grid-cols-4-auto t-lg:justify-between t-lg:max-w-none'
+                )}
+              >
+                {desktopFooter.navLinkGroups.map((item) => {
+                  return (
+                    <Grid type="item" key={item._id}>
+                      <Heading as="h5" className="mb-3">
+                        {item.displayText}
+                      </Heading>
+                      <nav>
+                        <ul>
+                          {item.navLinks.map((item) => {
+                            return (
+                              <li key={item._id}>
+                                <Link href={item.url}>{item.displayText}</Link>
+                              </li>
+                            );
+                          })}
+                        </ul>
+                      </nav>
+                    </Grid>
+                  );
+                })}
+              </Grid>
             )}
           </Container>
         </Section>
