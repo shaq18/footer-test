@@ -18,7 +18,11 @@ module.exports = {
     fontFamily: {
       main: ['Avenir LT Pro', 'sans-serif'],
     },
-    fontSize: {},
+    fontSize: {
+      footer: ['14px', '1'],
+      icon: ['29px', '1'],
+      xxs: ['10px', '1.7'],
+    },
     screens: {
       // m = mobile, t = tablet, l = laptop, d = desktop
       'm-lg': '568px',
@@ -55,7 +59,9 @@ module.exports = {
     extend: {},
   },
   variants: {
-    extend: {},
+    extend: {
+      borderWidth: ['last'],
+    },
   },
   corePlugins: {
     container: false,
